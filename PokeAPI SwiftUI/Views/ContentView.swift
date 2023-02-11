@@ -30,6 +30,12 @@ struct ContentView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
             .searchable(text: $vm.searchText)
+            .navigationBarItems(trailing: Button(action: {
+                        // Add your code to mark the selected pokemon as a favorite
+                    }, label: {
+                        Image(systemName: "star")
+                    }))
+                
         }
         .environmentObject(vm)
     }

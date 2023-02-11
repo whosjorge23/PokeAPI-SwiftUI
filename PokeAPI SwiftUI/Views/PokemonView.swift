@@ -27,7 +27,7 @@ struct PokemonView: View {
                     
             }
             .background(.thinMaterial)
-            .clipShape(Circle())
+            .clipShape(RoundedRectangle(cornerRadius: 20))
 
             Text("\(pokemon.name.capitalized)")
                 .font(.system(size: 16, weight: .regular, design: .monospaced))
