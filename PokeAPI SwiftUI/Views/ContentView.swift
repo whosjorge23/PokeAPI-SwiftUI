@@ -32,8 +32,10 @@ struct ContentView: View {
             .searchable(text: $vm.searchText)
             .navigationBarItems(trailing: Button(action: {
                         // Add your code to mark the selected pokemon as a favorite
+                vm.showOnlyFavorites = !vm.showOnlyFavorites
                     }, label: {
                         Image(systemName: "star")
+                            .foregroundColor(vm.showOnlyFavorites ? Color.yellow : Color.blue)
                     }))
                 
         }

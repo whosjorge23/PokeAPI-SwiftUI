@@ -42,25 +42,27 @@ struct PokemonDetailView: View {
                 
                 Group {
                     Text("**Statistics**")
-    //                Text("**\(vm.pokemonDetails?.stats[0].stat.name.capitalized ?? "HP")**: \(vm.pokemonDetails?.stats[0].base_stat ?? 0)")
                     ProgressView("**\(vm.pokemonDetails?.stats[0].stat.name.capitalized ?? "HP")**: \(vm.pokemonDetails?.stats[0].base_stat ?? 0)", value: Double(vm.pokemonDetails?.stats[0].base_stat ?? 0)/100, total: 2.0)
                     
-    //                Text("**\(vm.pokemonDetails?.stats[1].stat.name.capitalized ?? "Attack")**: \(vm.pokemonDetails?.stats[1].base_stat ?? 0)")
                     ProgressView("**\(vm.pokemonDetails?.stats[1].stat.name.capitalized ?? "Attack")**: \(vm.pokemonDetails?.stats[1].base_stat ?? 0)", value: Double(vm.pokemonDetails?.stats[1].base_stat ?? 0)/100, total: 2.0)
                     
-    //                Text("**\(vm.pokemonDetails?.stats[2].stat.name.capitalized ?? "Defense")**: \(vm.pokemonDetails?.stats[2].base_stat ?? 0)")
                     ProgressView("**\(vm.pokemonDetails?.stats[2].stat.name.capitalized ?? "Defense")**: \(vm.pokemonDetails?.stats[2].base_stat ?? 0)", value: Double(vm.pokemonDetails?.stats[2].base_stat ?? 0)/100, total: 2.0)
                     
-    //                Text("**\(vm.pokemonDetails?.stats[3].stat.name.capitalized ?? "Special-Attack")**: \(vm.pokemonDetails?.stats[3].base_stat ?? 0)")
                     ProgressView("**\(vm.pokemonDetails?.stats[3].stat.name.capitalized ?? "Special-Attack")**: \(vm.pokemonDetails?.stats[3].base_stat ?? 0)", value: Double(vm.pokemonDetails?.stats[3].base_stat ?? 0)/100, total: 2.0)
                     
-    //                Text("**\(vm.pokemonDetails?.stats[4].stat.name.capitalized ?? "Special-Defense")**: \(vm.pokemonDetails?.stats[4].base_stat ?? 0)")
                     ProgressView("**\(vm.pokemonDetails?.stats[4].stat.name.capitalized ?? "Special-Defense")**: \(vm.pokemonDetails?.stats[4].base_stat ?? 0)", value: Double(vm.pokemonDetails?.stats[4].base_stat ?? 0)/100, total: 2.0)
                     
-    //                Text("**\(vm.pokemonDetails?.stats[5].stat.name.capitalized ?? "Speed")**: \(vm.pokemonDetails?.stats[5].base_stat ?? 0)")
                     ProgressView("**\(vm.pokemonDetails?.stats[5].stat.name.capitalized ?? "Speed")**: \(vm.pokemonDetails?.stats[5].base_stat ?? 0)", value: Double(vm.pokemonDetails?.stats[5].base_stat ?? 0)/100, total: 2.0)
                 }
                 
+                Button(action: {
+                                // Add code to add the pokemon to the list of favorite pokemon
+                                vm.addToFavorites(pokemon: pokemon)
+                            }) {
+                                Text(!vm.isPokemonFavorite ? "Remove from Favorite" : "Add to Favorite")
+                                    .foregroundColor(!vm.isPokemonFavorite ? .red : .yellow)
+                                    .padding()
+                            }
                 
             }
             .padding()
