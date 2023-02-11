@@ -12,6 +12,7 @@
 		CC3E040129979549005AD9EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC3E040029979549005AD9EF /* Assets.xcassets */; };
 		CC3E040429979549005AD9EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC3E040329979549005AD9EF /* Preview Assets.xcassets */; };
 		CC3E040C29979591005AD9EF /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = CC3E040B29979591005AD9EF /* pokemon.json */; };
+		CC3E040F299796A9005AD9EF /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E040E299796A9005AD9EF /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		CC3E040029979549005AD9EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC3E040329979549005AD9EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CC3E040B29979591005AD9EF /* pokemon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pokemon.json; sourceTree = "<group>"; };
+		CC3E040E299796A9005AD9EF /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				CC3E03FC29979548005AD9EF /* PokeAPI_SwiftUIApp.swift */,
 				CC3E03FE29979548005AD9EF /* ContentView.swift */,
+				CC3E040D2997964B005AD9EF /* Helpers */,
 				CC3E040A29979565005AD9EF /* Data */,
 				CC3E040029979549005AD9EF /* Assets.xcassets */,
 				CC3E040229979549005AD9EF /* Preview Content */,
@@ -76,6 +79,14 @@
 				CC3E040B29979591005AD9EF /* pokemon.json */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		CC3E040D2997964B005AD9EF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CC3E040E299796A9005AD9EF /* Helpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC3E03FF29979548005AD9EF /* ContentView.swift in Sources */,
+				CC3E040F299796A9005AD9EF /* Helpers.swift in Sources */,
 				CC3E03FD29979548005AD9EF /* PokeAPI_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
