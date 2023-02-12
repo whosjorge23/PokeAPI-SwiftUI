@@ -16,6 +16,8 @@ class ViewModel: ObservableObject {
     @Published var pokemonDetails: PokemonDetail?
     @Published var searchText = ""
     @Published var showOnlyFavorites = false
+    let defaults = UserDefaults.standard
+
     
     // Used with searchText to filter pokemon results
     var filteredPokemon: [Pokemon] {
@@ -25,10 +27,13 @@ class ViewModel: ObservableObject {
             return searchText == "" ? pokemonList : pokemonList.filter { $0.name.contains(searchText.lowercased()) }
         }
                 
-            }
+    }
     
     init() {
         self.pokemonList = pokemonManager.getPokemon()
+        self.favoritePokemon = pokemonManager.getPokemon()
+        retrieveFavorites()
+        
     }
     
     
@@ -42,12 +47,20 @@ class ViewModel: ObservableObject {
     
     //Add Pokemon to the favorite List
     func addToFavorites(pokemon: Pokemon) {
-            if !favoritePokemon.contains(pokemon){
-                favoritePokemon.append(pokemon)
-            }else{
-                let index = favoritePokemon.firstIndex(of: pokemon)
-                favoritePokemon.remove(at: index!)
-            }
+        if !favoritePokemon.contains(pokemon){
+            favoritePokemon.append(pokemon)
+            defaults.set(try? PropertyListEncoder().encode(favoritePokemon), forKey: "favoritePokemon")
+        }else{
+            let index = favoritePokemon.firstIndex(of: pokemon)
+            favoritePokemon.remove(at: index!)
+            defaults.set(try? PropertyListEncoder().encode(favoritePokemon), forKey: "favoritePokemon")
+        }
+    }
+    
+    func retrieveFavorites() {
+        if let data = defaults.value(forKey: "favoritePokemon") as? Data {
+            favoritePokemon = try! PropertyListDecoder().decode([Pokemon].self, from: data)
+        }
     }
     
     // Get specific details for a pokemon
@@ -64,27 +77,27 @@ class ViewModel: ObservableObject {
                     Stats(
                         base_stat: 0,
                         effort: 0,
-                        stat: PokeStat(name: "hp", url: "url")),
+                        stat: PokeStat(name: "Hp", url: "url")),
                     Stats(
                         base_stat: 0,
                         effort: 0,
-                        stat: PokeStat(name: "hp", url: "url")),
+                        stat: PokeStat(name: "Attack", url: "url")),
                     Stats(
                         base_stat: 0,
                         effort: 0,
-                        stat: PokeStat(name: "hp", url: "url")),
+                        stat: PokeStat(name: "Defense", url: "url")),
                     Stats(
                         base_stat: 0,
                         effort: 0,
-                        stat: PokeStat(name: "hp", url: "url")),
+                        stat: PokeStat(name: "Special-Attack", url: "url")),
                     Stats(
                         base_stat: 0,
                         effort: 0,
-                        stat: PokeStat(name: "hp", url: "url")),
+                        stat: PokeStat(name: "Special-Defense", url: "url")),
                     Stats(
                         base_stat: 0,
                         effort: 0,
-                        stat: PokeStat(name: "hp", url: "url")
+                        stat: PokeStat(name: "Speed", url: "url")
                     )
                 ]
             )
