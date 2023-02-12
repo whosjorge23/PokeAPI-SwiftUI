@@ -59,8 +59,8 @@ struct PokemonDetailView: View {
                                 // Add code to add the pokemon to the list of favorite pokemon
                                 vm.addToFavorites(pokemon: pokemon)
                             }) {
-                                Text(!vm.isPokemonFavorite ? "Remove from Favorite" : "Add to Favorite")
-                                    .foregroundColor(!vm.isPokemonFavorite ? .red : .yellow)
+                                Text(vm.favoritePokemon.contains(pokemon) ? "Remove from Favorite" : "Add to Favorite")
+                                    .foregroundColor(vm.favoritePokemon.contains(pokemon) ? .red : .yellow)
                                     .padding()
                             }
                 
