@@ -22,7 +22,12 @@ struct PokemonDetailView: View {
                     HStack {
                         Text("**ID**: \(vm.pokemonDetails?.id ?? 0)")
                         Spacer()
-                        Text("**Type**: \(vm.pokemonDetails?.types[0].type.name.capitalized ?? "Unknown")")
+                        if let types = vm.pokemonDetails?.types, types.count >= 1 {
+                            Text("**Type**: *\(types[0].type.name.capitalized)*")
+                        }
+                        if let types = vm.pokemonDetails?.types, types.count >= 2 {
+                            Text("*\(types[1].type.name.capitalized)*")
+                        }
                     }
                     HStack {
                         Text("**Weight**: \(vm.formatHW(value: vm.pokemonDetails?.weight ?? 0)) KG")
@@ -34,9 +39,13 @@ struct PokemonDetailView: View {
                 Group {
                     Text("**Abilities**")
                     HStack {
-                        Text("*\(vm.pokemonDetails?.abilities[0].ability.name.capitalized ?? "HP")*")
-                        Spacer()
-                        Text("*\(vm.pokemonDetails?.abilities[1].ability.name.capitalized ?? "HP")*")
+                        if let abilities = vm.pokemonDetails?.abilities, abilities.count >= 1 {
+                            Text("*\(abilities[0].ability.name.capitalized)*")
+                            Spacer()
+                        }
+                        if let abilities = vm.pokemonDetails?.abilities, abilities.count >= 2 {
+                            Text("*\(abilities[1].ability.name.capitalized)*")
+                        }
                     }
                 }
                 
