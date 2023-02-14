@@ -29,6 +29,7 @@ class ViewModel: ObservableObject {
                 
     }
     
+    //This function is called to initialize the properties of the app
     init() {
         self.pokemonList = pokemonManager.getPokemon()
         self.favoritePokemon = pokemonManager.getPokemon()
@@ -57,6 +58,7 @@ class ViewModel: ObservableObject {
         }
     }
     
+    //Retrive the favorite pokemon after closing the app
     func retrieveFavorites() {
         if let data = defaults.value(forKey: "favoritePokemon") as? Data {
             favoritePokemon = try! PropertyListDecoder().decode([Pokemon].self, from: data)

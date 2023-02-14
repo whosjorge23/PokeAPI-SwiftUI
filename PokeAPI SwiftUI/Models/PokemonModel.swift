@@ -8,6 +8,11 @@
 import Foundation
 
 
+//Codable, Identifiable, Equatable are Swift protocols
+//Codable: it's used when you must serialize(to trasform and object to JSON) and deserialize(to trasform and object a SwiftOBJ) the JSON
+//Identifiable: It's used when you want to use and ID to identify the instance
+//Equatable: It's used when you wnat to check if the instance are ==
+
 struct PokemonPage: Codable {
     let count: Int
     let next: String

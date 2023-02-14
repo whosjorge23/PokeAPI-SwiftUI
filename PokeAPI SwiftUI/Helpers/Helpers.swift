@@ -32,6 +32,7 @@ extension Bundle {
     func fetchData<T: Decodable>(url: String, model: T.Type, completion:@escaping(T) -> (), failure:@escaping(Error) -> ()) {
             guard let url = URL(string: url) else { return }
             
+        //URLSession is a class that allow to create the comunication with servers HTTP, HTTPS, FTP
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                 guard let data = data else {
                     // If there is an error, return the error.

@@ -39,6 +39,7 @@ struct ContentView: View {
                     }))
                 
         }
+        //This function allow to pass the ViewModel to all the SubView in a more easy way, avoid to instanciate the vm in every SubView
         .environmentObject(vm)
     }
 }
