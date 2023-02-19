@@ -21,7 +21,7 @@ struct ContentView: View {
                     ForEach(vm.filteredPokemon) { pokemon in
                         NavigationLink(destination: PokemonDetailView(pokemon: pokemon)
                         ) {
-                            PokemonView(pokemon: pokemon)    
+                            PokemonView(pokemon: pokemon, detailView: false)    
                         }
                     }
                 }
